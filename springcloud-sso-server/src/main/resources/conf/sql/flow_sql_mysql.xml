@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <sql id="sql_create_flow_info" description="创建流程基本信息">
+       <![CDATA[
+		 insert into t_sys_flow_info(flow_code,flow_type,flow_name,current_deal_user,create_user,create_time,flow_state,linked_id) values(?,?,?,?,?,?,?,?)
+	   ]]> 
+    </sql>
+    
+    <sql id="sql_insert_flow_deal_user" description="保存流程整个处理用户的信息">
+       <![CDATA[ 
+        insert into t_sys_flow_deal_user(deal_code,next_deal_code,flow_code,deal_user,deal_order) values(?,?,?,?,?)
+       ]]> 
+    </sql>
+    
+    <sql id="sql_insert_deal_record" description="保存处理记录">
+       <![CDATA[ 
+        insert into t_sys_flow_auth_record(record_code,flow_code,deal_code,deal_user,receive_date,deal_date,deal_result) values(?,?,?,?,?,?,?)
+       ]]>  
+    </sql>
+    
+    <sql id="sql_insert_flow_type_selected_users" description="保存用户某一项审批流程选择用户信息">
+       <![CDATA[ 
+        insert into t_sys_flow_type_users(flow_type,create_user,selected_users,create_time) values(?,?,?,?)
+       ]]> 
+    </sql>
+    
+    <sql id="sql_update_flow_type_selected_users" description="更新某一个流程特定用户的选择用户信息">
+       <![CDATA[ 
+        update t_sys_flow_type_users set selected_users = ? where flow_type = ? and create_user = ?
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_flow_info_by_flow_code" description="根据流程编码查询记录基本信息">
+       <![CDATA[  
+        select ti.flow_code,ti.flow_name,ti.current_deal_user,ti.create_user,ti.create_time,ti.flow_state,tu.user_name
+		 from t_sys_flow_info ti
+		 left join t_sys_user tu on ti.create_user = tu.user_phone
+		 where ti.flow_code = ?
+       ]]>  
+    </sql>
+    
+    <sql id="sql_query_flow_deal_records" description="根据流程编码查询流程处理记录">
+       <![CDATA[ 
+        select tr.flow_code,tr.deal_code,tr.deal_user,tr.receive_date,tr.deal_date,tr.deal_result,tr.deal_idea,tr.deal_files,tu.user_name
+         from t_sys_flow_auth_record tr 
+         left join t_sys_user tu on tr.deal_user = tu.user_phone
+         where flow_code = ?
+         order by receive_date
+       ]]>  
+    </sql>
+    
+    <sql id="sql_query_flow_no_deal_users" description="查询当前流程未进入处理状态的流程信息">
+       <![CDATA[ 
+        select tdu.deal_code,tdu.deal_user,tu.user_name
+         from t_sys_flow_deal_user tdu
+         left join t_sys_user tu on tdu.deal_user = tu.user_code
+         where tdu.flow_code = ? and tdu.deal_order > (select deal_order from t_sys_flow_deal_user where deal_code = ?)
+          order by tdu.deal_order
+       ]]>  
+    </sql>
+    
+    <sql id="sql_check_flow_is_legal" description="检查当前处理人处理当前流程是否合法">
+       <![CDATA[ 
+        select count(0) from t_sys_flow_info where flow_code = ? and current_deal_user = ? and flow_state= 'dealing'
+       ]]> 
+    </sql>
+    
+    <sql id="sql_check_flow_record_is_legal" description="检查流程处理记录是否合法">
+       <![CDATA[  
+        select count(0) from t_sys_flow_auth_record where flow_code = ? and deal_user = ? and deal_result='checking'
+       ]]>  
+    </sql>
+    
+    <sql id="sql_query_next_step_deal_code" description="获取下一个处理步骤用户编号">
+       <![CDATA[ 
+        select next_deal_code from t_sys_flow_deal_user where deal_code = (
+		select deal_code from t_sys_flow_auth_record where flow_code = ? and deal_user = ? and deal_result='checking') 
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_deal_code" description="根据处理人和流程编码查询处理编码">
+       <![CDATA[  
+        select deal_code from t_sys_flow_auth_record where flow_code = ? and deal_user = ? and deal_result='checking'
+       ]]>  
+    </sql>
+    
+    <sql id="sql_update_flow_deal_result" description="更新流程处理结果">
+      <![CDATA[   
+        update t_sys_flow_auth_record set deal_date = ? ,deal_result = ? , deal_idea = ? , deal_files = ? where flow_code = ? and deal_user = ? and deal_result = 'checking'
+      ]]>  
+    </sql>
+    
+    <sql id="sql_update_flow_next_deal_user" description="更新流程处理人为下一用户">
+       <![CDATA[     
+        update t_sys_flow_info set current_deal_user = ? ,flow_state = 'dealing',create_time = now() where flow_code = ?
+       ]]>  
+    </sql>
+    
+    <sql id="sql_update_flow_state_end" description="将流程状态置为已结束状态">
+      <![CDATA[     
+        update t_sys_flow_info set flow_state = ? where flow_code = ?
+      ]]>  
+    </sql>
+    
+    <sql id="sql_query_next_deal_user" description="根据下一步处理编码查询下一步流程处理人">
+       <![CDATA[ 
+        select deal_user from  t_sys_flow_deal_user where deal_code = ?
+       ]]>  
+    </sql>
+    
+    <sql id="sql_query_flow_type_selected_users" description="查询流程分析用户所选择的处理人信息">
+       <![CDATA[  
+        select selected_users from t_sys_flow_type_users where flow_type = ? and create_user = ?
+       ]]>  
+    </sql>
+    
+    <sql id="sql_query_flow_create_user" description="根据流程编码查询流程创建人">
+       <![CDATA[  
+        select create_user from t_sys_flow_info where flow_code = ?
+       ]]>   
+    </sql>
+    
+    <sql id="sql_query_flow_by_create_user" description="根据流程创建人查询流程信息">
+       <![CDATA[ 
+        select flow_code,flow_type,flow_name,create_time,flow_state from t_sys_flow_info where create_user = ? order by create_time desc
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_flow_count_by_create_user" description="根据流程处理人查询流程信息数量">
+        <![CDATA[ 
+        select count(0) from t_sys_flow_info where create_user = ?
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_user_dealing_flows" description="查询当前用户审批中的流程">
+       <![CDATA[  
+        select ti.flow_code,ti.flow_type,ti.flow_name,ti.create_time,ti.flow_state,ti.create_user,tu.user_name,tu.extend_third 
+		from t_sys_flow_info ti 
+		left join t_sys_user tu on tu.user_phone=ti.create_user
+		where current_deal_user = ? and flow_state='dealing' order by create_time desc
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_user_dealing_flows_count" description="查询当前用户审批中的流程记录数">
+       <![CDATA[  
+        select count(0)
+		from t_sys_flow_info
+		where current_deal_user = ? and flow_state='dealing'
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_user_dealed_flows" description="查询用户参与审批的流程">
+       <![CDATA[ 
+        select ti.flow_code,ti.flow_type,ti.flow_name,ti.create_time,ti.flow_state,ti.create_user,tu.user_name,tu.extend_third  
+		from t_sys_flow_info ti 
+		left join t_sys_user tu on tu.user_phone=ti.create_user
+		where ti.flow_code in (select distinct flow_code from t_sys_flow_auth_record where deal_user = ? and deal_result!='checking' and deal_result!='apply')
+		 order by create_time desc 
+       ]]>  
+    </sql>
+    
+    <sql id="sql_insert_flow_list_data" description="保存流程列表显示的数据信息">
+       <![CDATA[ 
+        insert into t_sys_flow_list_data(flow_code,data_label,data_value) values(?,?,?)
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_flow_list_data" description="查询流程当前页数流程的列表显示数据">
+       <![CDATA[  
+        select data_code,flow_code,data_label,data_value from t_sys_flow_list_data where flow_code in (#FLOW_CODES#) order by flow_code,data_code
+       ]]> 
+    </sql>
+</root>    

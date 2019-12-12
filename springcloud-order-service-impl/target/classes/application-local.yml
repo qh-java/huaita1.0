@@ -1,0 +1,43 @@
+#本地环境
+#服务启动端口
+server:
+  port: 8002
+#服务名称（服务注册到eureka的名称）
+spring:
+  application:
+    name: app-huaita-order
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+  cloud:
+    client:
+      ipAddress: 127.0.0.1
+    #对于redis的整合
+  redis:
+    host: 122.51.82.18
+    port: 6379
+    lettuce:
+      pool:
+        max-wait: 100000
+        max-idle: 10
+        max-active: 100
+    timeout: 5000
+
+#服务注册eureka的地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-erueka: true
+    fetch-registry: true
+  #activemq队列配置
+  activemq:
+    broker-url: tcp://122.51.82.18:616
+    in-memory: true
+    #    user: admin
+    #    password: admin
+    pool:
+      enabled: true
+      max-connections: 50
+      expiry-timeout: 10000
+      idle-timeout: 30000

@@ -1,0 +1,16 @@
+#测试环境
+#服务端端口
+server:
+  port: 8080
+#erueka基本信息配置
+eureka:
+  instance:
+    #注册到erueka的地址
+    hostname: 122.51.82.18
+  client:
+    serviceUrl:
+      defaultUrl: http://${eureka.instance.hostname}:${server.port}/erueka/
+    #因为自己是注册中心，不需要注册自己注册自己
+    register-with-eureka: false
+    #因为自己是注册中心，不需要检索服务
+    fetch-registry: false

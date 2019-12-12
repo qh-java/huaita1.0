@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<sql id="sql_query_all_menus" description="查询所有菜单信息">
+	   <![CDATA[ 
+	    select tm1.system_code,tm1.menu_desc, tm1.menu_code,tm1.menu_name,tm1.menu_order,tm1.menu_icon,tm1.parent_menu_code,tm1.menu_link,tm1.menu_methods,tm2.menu_name parent_menu_name
+        from t_sys_menu tm1 left join t_sys_menu tm2 on tm2.menu_code = tm1.parent_menu_code order by menu_order
+	   ]]> 
+	</sql>
+	<sql id="sql_update_menu_sytem_code" description="修改菜单子系统信息">
+	   <![CDATA[ 
+	    update t_sys_menu set system_code = ? where menu_code = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_query_all_role" description="查询所有的权限">
+	    <![CDATA[
+	    select * from t_sys_role
+	    ]]>  
+	</sql>
+	<sql id="sql_query_user_role" description="查询所有的权限">
+	    <![CDATA[
+	    select role_code from t_sys_user_role where user_code = ?
+	    ]]>  
+	</sql>
+	<sql id="sql_query_all_role_not_system" description="查询所有的权限">
+	    <![CDATA[
+	    select * from t_sys_role where role_code != 'system'
+	    ]]>  
+	</sql>
+	<sql id="sql_delete_t_sys_role_system" description="修改菜单子系统信息">
+	   <![CDATA[ 
+	    delete from t_sys_role_system where role_code =?
+	   ]]> 
+	</sql>
+	<sql id="sql_add_t_sys_role_system" description="修改菜单子系统信息">
+	   <![CDATA[ 
+	    insert into t_sys_role_system (id,system_code,role_code) values (?,?,?)
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_sys_role_system" description="查询角色具有的子系统">
+	   <![CDATA[ 
+	    select id,system_code,role_code from t_sys_role_system where role_code = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_query_user_menus" description="查询用户所具有的菜单权限">
+   	  <![CDATA[
+		select distinct tm.menu_desc,trm.menu_code,tm.menu_name,tm.parent_menu_code,tm.menu_link,tm.menu_icon,tm.menu_order
+		from t_sys_role_menu trm
+		left join t_sys_menu tm on trm.menu_code = tm.menu_code
+		where trm.role_code in (select role_code from t_sys_user_role where user_code = ?)
+		order by tm.parent_menu_code,tm.menu_order
+	  ]]>
+	</sql>
+	<sql id="sql_query_top_menus" description="查询所有的顶级菜单">
+	  <![CDATA[  
+	    select system_code,menu_code,menu_name,menu_order,menu_icon,parent_menu_code,menu_desc from t_sys_menu where parent_menu_code = 0 order by menu_order
+	  ]]>  
+	</sql>
+	<sql id="sql_query_user_menu_methods" description="查询用户所有的菜单方法">
+	   <![CDATA[ 
+	    select * from (select distinct trm.menu_code,tm.menu_name,tm.menu_methods,tm.parent_menu_code,tm.menu_order
+		from t_sys_role_menu trm
+		left join t_sys_menu tm on trm.menu_code = tm.menu_code
+		where trm.role_code in (select role_code from t_sys_user_role where user_code = ? )
+		order by tm.parent_menu_code,tm.menu_order) t where menu_code = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_query_user_menu_functions" description="查询用户所具有的功能权限">
+	   <![CDATA[ 
+	    select * from (select distinct mf.menu_code,mf.fun_code,mf.fun_name,mf.fun_methods,mf.fun_order
+		 from t_sys_role_function rf
+		 left join t_sys_menu_function mf on mf.fun_code = rf.fun_code and mf.menu_code = rf.menu_code
+		 where rf.role_code in (select role_code from t_sys_user_role where user_code = ?)
+		 order by mf.menu_code,mf.fun_order) t where menu_code = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_query_dic_value_list" description="查询字典值列表">
+	    <![CDATA[
+	     select dic_value_code,dic_value_text,dic_order,dic_code from t_sys_dic_value where dic_code = ? order by dic_order 
+	    ]]>  
+	</sql>
+	<sql id="sql_query_sys_setter" description="查询系统配置信息">
+	   <![CDATA[  
+	    select setter_code,setter_value,setter_desc from t_sys_setter where setter_code = ?
+	   ]]>   
+	</sql>
+	<sql id="sql_query_areas" description="查询所有区域信息">
+	   <![CDATA[ 
+	    select t1.*,t2.area_name p_area_name from t_ds_sys_area t1 LEFT JOIN t_ds_sys_area t2 on t2.area_id = t1.p_area_id
+	   ]]> 
+	</sql>
+	<sql id="sql_query_areas_by_p_area_id" description="查询所有区域信息">
+	   <![CDATA[ 
+	    select * from t_ds_sys_area where p_area_id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_query_areas_by_pid" description="查询所有区域信息">
+	   <![CDATA[ 
+	    select t1.*,t2.area_name p_area_name from t_ds_sys_area t1 LEFT JOIN t_ds_sys_area t2 on t2.area_id = t1.p_area_id where t1.p_area_id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_query_area_by_area_id" description="查询区域信息">
+	   <![CDATA[ 
+	    select * from t_ds_sys_area where area_id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_insert_area" description="新增区域信息">
+	   <![CDATA[ 
+	    insert into t_ds_sys_area (area_id,area_show_code,area_name,p_area_id,area_level,create_user,create_time) values (?,?,?,?,?,?,?)
+	   ]]> 
+	</sql>
+	<sql id="sql_delete_area" description="删除区域信息">
+	   <![CDATA[ 
+	    delete from t_ds_sys_area where area_id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_delete_area_by_parent_id" description="删除子区域信息">
+	   <![CDATA[ 
+	    delete from t_ds_sys_area where p_area_id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_update_area" description="删除区域信息">
+	   <![CDATA[ 
+	    update t_ds_sys_area set area_name = ?,area_show_code = ? where area_id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_select_area_by_p_area_id_and_area_name" description="根据区域名称和父编码查询">
+	   <![CDATA[ 
+	    select count(0) from t_ds_sys_area where p_area_id = ? and area_name = ? #SQL#
+	   ]]> 
+	</sql>
+	<sql id="sql_select_area_by_p_area_id_and_show_code" description="根据区域名称和父编码查询">
+	   <![CDATA[ 
+	    select count(0) from t_ds_sys_area where area_show_code = ? #SQL#
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_ds_sys_address_book" description="查询通讯录">
+	   <![CDATA[ 
+	    select t.*,ta.area_name from t_ds_sys_address_book t left join t_ds_sys_area ta on ta.area_id = t.area_id where t.create_user = ? and ( book_type = ? or '-1' = ?)
+	   ]]> 
+	</sql>
+
+	<sql id="sql_select_t_ds_sys_address_book1" description="查询通讯录">
+		<![CDATA[
+	    select t.*,ta.area_name from t_ds_sys_address_book t left join t_ds_sys_area ta on ta.area_id = t.area_id where t.area_id = ? and ( book_type = ? or '-1' = ?)
+	   ]]>
+	</sql>
+
+
+	<sql id="sql_select_t_ds_sys_address_book_count" description="查询通讯录">
+	   <![CDATA[ 
+	    select count(0) from t_ds_sys_address_book t left join t_ds_sys_area ta on ta.area_id = t.area_id where t.create_user = ? and ( book_type = ? or '-1' = ?)
+	   ]]> 
+	</sql>
+	<sql id="sql_insert_t_ds_sys_address_book" description="新增通讯录">
+	   <![CDATA[ 
+	    insert into t_ds_sys_address_book (id,address_book_name,book_type,area_id,create_user,create_time) values (?,?,?,?,?,?)
+	   ]]> 
+	</sql>
+	<sql id="sql_update_t_ds_sys_address_book" description="修改通讯录">
+	   <![CDATA[ 
+	    update t_ds_sys_address_book set address_book_name = ?,book_type = ? ,area_id = ? where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_delete_t_ds_sys_address_book" description="删除通讯录">
+	   <![CDATA[ 
+	    delete from t_ds_sys_address_book where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_delete_t_ds_sys_address_book_user" description="删除通讯录">
+	   <![CDATA[ 
+	    delete from t_ds_sys_address_users where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_query_t_ds_sys_address_book_by_name_area_id" description="查询通讯录名称">
+	   <![CDATA[ 
+	    select count(0) from t_ds_sys_address_book where address_book_name = ? and area_id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_query_t_ds_sys_address_book_by_name_area_id_other" description="查询通讯录除自己之外的名称">
+	   <![CDATA[ 
+	    select count(0) from t_ds_sys_address_book where address_book_name = ? and area_id = ? and id != ?
+	   ]]> 
+	</sql>
+	<sql id="sql_query_depts" description="查询所有的部门信息">
+	   <![CDATA[ 
+	    select dept_code,dept_show_code,dept_name,p_dept_code,dept_level from t_sys_dept order by dept_level,dept_code
+	   ]]> 
+	</sql>
+	<sql id="sql_query_t_ds_sys_address_users" description="查询通讯录下人员信息">
+	   <![CDATA[ 
+	   	select * from t_ds_sys_address_users where book_id = ? and user_name like ? order by book_sort
+	   ]]> 
+	</sql>
+
+	<sql id="queryAdressBookUserByUserId" description="查询通讯录下人员信息">
+		<![CDATA[
+	   	select * from t_ds_sys_address_users where user_id = ?
+	   ]]>
+	</sql>
+
+
+	<sql id="queryAdressBookUserByUserId1" description="根据通讯录id查询人员">
+		<![CDATA[
+	   	select id, user_id,user_name,user_phone,user_mobile_phone from t_ds_sys_address_users where book_id = ?
+	   ]]>
+	</sql>
+
+	<sql id="sql_query_t_ds_sys_address_users_count" description="查询通讯录下人员信息">
+	   <![CDATA[ 
+	   	select count(0) from t_ds_sys_address_users where book_id = ? and user_name like ? order by book_sort
+	   ]]> 
+	</sql>
+	<sql id="sql_query_t_ds_sys_address_users_count" description="查询通讯录下人员信息">
+	   <![CDATA[ 
+	   	select count(0) from t_ds_sys_address_users tu left join t_sys_dept td on td.dept_code = tu.dept_code where book_id = ? and user_name like ?
+	   ]]> 
+	</sql>
+	<sql id="sql_query_t_sys_user_by_dept_code" description="查询通讯录下人员信息">
+	   <![CDATA[ 
+	   	select * from t_sys_user where user_dept_code = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_update_t_sys_user_by_id" description="查询通讯录下人员信息">
+	   <![CDATA[ 
+	   	update t_ds_sys_address_users set book_sort = ? where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_update_t_sys_user_by_id_book_sort" description="查询通讯录下人员信息">
+	   <![CDATA[ 
+	   	select book_sort from t_ds_sys_address_users where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_insert_t_ds_sys_address_users" description="新增通讯录下人员信息">
+	   <![CDATA[ 
+	   	insert into t_ds_sys_address_users (id ,book_id ,user_id,user_type ,user_phone ,user_mobile_phone,user_email,user_fox ,book_sort,create_user,create_time,user_name,group_duty,dept_code,dept_duty,remark,dept_name,dept_duty_name) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+	   ]]> 
+	</sql>
+	<sql id="sql_update_t_ds_sys_address_users" description="修改通讯录下人员信息">
+	   <![CDATA[ 
+	   	update t_ds_sys_address_users set user_id = ?,user_type = ?,user_phone = ?,user_mobile_phone = ?,user_email = ?,user_fox = ?,user_name = ?,group_duty = ?,dept_code = ?,dept_duty = ?,remark=?,dept_name=?,dept_duty_name=? where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_update_t_ds_sys_address_users_dept" description="修改通讯录下人员部门信息">
+	   <![CDATA[ 
+	   	UPDATE t_ds_sys_address_users SET dept_name = (
+			SELECT
+				dept_name
+			FROM
+				t_sys_dept
+			WHERE
+				dept_code = ?
+		)
+		WHERE
+			id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_ds_sys_msg_send_rec" description="查询所有消息收发记录">
+	   <![CDATA[ 
+	   	select tm.*,ts.user_name from t_ds_sys_msg_send_rec tm LEFT JOIN t_sys_user ts on ts.user_code = tm.send_user where (receiver_type = ? or '-1' = ?) and (msg_type = ? or '-1' = ?) and (priority_level =? or '-1' = ? )
+		#BEGIN# and send_time <= ? order by send_time desc
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_ds_sys_msg_send_rec_count" description="查询所有消息收发记录">
+	   <![CDATA[ 
+	   	select count(0) from t_ds_sys_msg_send_rec where (receiver_type = ? or '-1' = ?) and (msg_type = ? or '-1' = ?) and (priority_level =? or '-1' = ? )
+		#BEGIN# and send_time <= ? order by send_time desc
+	   ]]> 
+	</sql>
+	<sql id="sql_insert_t_ds_sys_msg_send_rec" description="新增消息收发记录">
+	   <![CDATA[ 
+	   	 INSERT into t_ds_sys_msg_send_rec (id,send_user,msg_context,msg_source,priority_level,msg_type,receiver_type,
+		 send_time,msg_state,msg_path,msg_blob,receive_users,receive_areas ) values (?,?,?,?,?,?,?,?,?,?,?,?,?)
+	   ]]> 
+	</sql>
+	<sql id="sql_insert_t_ds_sys_msg_receive" description="新增未读消息">
+	   <![CDATA[ 
+	   	 INSERT into t_ds_sys_msg_receive (id,send_user,msg_id,receive_user,send_time,msg_type,priority_level) values (?,?,?,?,?,?,?)
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_sys_user_all_users" description="查询所有消息收发记录">
+	   <![CDATA[ 
+	   	select tu.user_code,tu.user_name,tu.user_dept_code,td.dept_name,td.area_id,tu.user_phone from t_sys_user tu
+		LEFT JOIN t_sys_dept td on td.dept_code = tu.user_dept_code where user_state = 'normal'
+	   ]]> 
+	</sql>
+	<sql id="sql_update_t_ds_sys_msg_send_rec" description="更新消息状态">
+	   <![CDATA[ 
+	   	 update t_ds_sys_msg_send_rec set msg_state = ? where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_update_t_ds_sys_msg_receive" description="删除消息">
+	   <![CDATA[ 
+	   	 delete from t_ds_sys_msg_receive where msg_id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_count_t_ds_sys_content_type" description="查询内容类型数量">
+	   <![CDATA[ 
+	   	 select count(0) from t_ds_sys_content_type where (type_name = ? or '-1' = ?) and (state= ? or '-1' = ?) and type_code like ?
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_ds_sys_content_type" description="查询内容类型list">
+	   <![CDATA[ 
+	   	 select td.*,tu.user_name create_name,tsu.user_name update_name from t_ds_sys_content_type td 
+		 LEFT JOIN t_sys_user tu on tu.user_code = td.create_user
+		 LEFT JOIN t_sys_user tsu on tsu.user_code = td.update_user where (type_name = ? or '-1' = ?) and (state= ? or '-1' = ?) and type_code like ? order By td.create_time desc,td.update_time desc
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_ds_sys_content_type_name" description="根据区域名称和父编码查询">
+	   <![CDATA[ 
+	    select count(0) from t_ds_sys_content_type where type_name = ? #SQL#
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_ds_sys_content_type_code" description="根据区域名称和父编码查询">
+	   <![CDATA[ 
+	    select count(0) from t_ds_sys_content_type where type_code = ? #SQL#
+	   ]]> 
+	</sql>
+	<sql id="sql_insert_t_ds_sys_content_type" description="新增内容类型">
+	   <![CDATA[ 
+	    insert into t_ds_sys_content_type (id,type_code,type_name,state,create_user,create_time,remark) values (?,?,?,?,?,?,?)
+	   ]]> 
+	</sql>
+	<sql id="sql_update_t_ds_sys_content_type" description="修改内容类型">
+	   <![CDATA[ 
+	    update t_ds_sys_content_type set type_code = ?,type_name = ? ,state = ?,remark = ?,update_user = ? ,update_time = ? where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_delete_t_ds_sys_content_type" description="删除内容类型">
+	   <![CDATA[ 
+	    delete from t_ds_sys_content_type where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_ds_sys_content_detail_count" description="查询所有消息收发记录">
+	   <![CDATA[ 
+	   	select count(0) from t_ds_sys_content_detail where (content_type = ? or '-1' = ?) and title like ? #BEGIN# and create_time <= ?
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_ds_sys_content_detail" description="查询所有消息收发记录">
+	   <![CDATA[ 
+	   select td.*,tu.user_name,tt.type_name content_type_str from t_ds_sys_content_detail td
+	   LEFT JOIN t_sys_user tu on tu.user_code = td.create_user
+       LEFT JOIN t_ds_sys_content_type tt on tt.type_code = td.content_type
+       where (content_type = ? or '-1' = ?) and title like ? #BEGIN# and td.create_time <= ? order by td.create_time desc,content_sort
+	   ]]> 
+	</sql>
+	<sql id="sql_delete_t_ds_sys_content_detail" description="删除内容">
+	   <![CDATA[ 
+	    delete from t_ds_sys_content_detail where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_add_t_ds_sys_content_detail" description="新增内容">
+	   <![CDATA[ 
+	    insert into t_ds_sys_content_detail (id,title,content_type,content_sort,is_release,create_user,create_time,content_detail,begin_date,end_date) values (?,?,?,(select * from (select if(max(t.content_sort) is null,0,max(t.content_sort)) +1 content_sort from t_ds_sys_content_detail t )tt),?,?,?,?,?,?)
+	   ]]> 
+	</sql>
+	<sql id="sql_update_t_ds_sys_content_detail" description="修改内容">
+	   <![CDATA[ 
+	    update t_ds_sys_content_detail set title = ?,content_type = ?,is_release = ?,create_user=?,create_time=?,content_detail=?,begin_date = ?,end_date = ? where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_ds_sys_short_msg" description="查询所有短信收发记录">
+	   <![CDATA[ 
+	   	select tm.*,ts.user_name,td.dept_name from t_ds_sys_short_msg tm left join t_sys_user ts on ts.user_code = tm.create_user
+		left join t_sys_dept td on td.dept_code = tm.dept_id where title like ? and (short_msg_type = ? or '-1' = ?) and td.dept_name like ? 
+		#BEGIN# and tm.create_time <= ? order by tm.create_time desc
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_ds_sys_short_msg_count" description="查询所有短信收发记录">
+	   <![CDATA[ 
+	   	select count(0) from t_ds_sys_short_msg tm left join t_sys_dept td on td.dept_code = tm.dept_id where title like ? and (short_msg_type = ? or '-1' = ?) and td.dept_name like ? 
+		#BEGIN# and tm.create_time <= ? order by tm.create_time desc
+	   ]]> 
+	</sql>
+	<sql id="sql_add_t_ds_sys_short_msg" description="新增短信发送记录">
+	   <![CDATA[ 
+	   	insert into t_ds_sys_short_msg (id,title,dept_id,plan_send_time,send_num,create_user,create_time,short_msg_content,interval_mins,
+   		short_msg_type,send_total_num,wait_send_num,sended_num,sended_success_num,sended_fail_num,send_time,receive_users
+		) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+	   ]]> 
+	</sql>
+	<sql id="sql_select_user_by_phone" description="查询用户信息">
+	   <![CDATA[ 
+	   	select user_code,user_name,user_dept_code from t_sys_user where user_phone = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_insert_t_ds_sys_short_msg_receiver" description="新增短信发送记录">
+	   <![CDATA[ 
+	   	INSERT into t_ds_sys_short_msg_receiver (id,short_msg_id,user_id,user_name,user_mobile_phone,dept_id,create_user,create_time,receive_state)
+ 		values (?,?,?,?,?,?,?,?,?)
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_ds_sys_short_msg_receiver" description="新增短信发送记录">
+	   <![CDATA[ 
+	    select te.*,td.dept_name from t_ds_sys_short_msg_receiver te LEFT JOIN t_sys_dept td on td.dept_code = te.dept_id
+		where short_msg_id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_find_one_user" description="查找单个用户">
+	   <![CDATA[ 
+	    select user_code,user_name,user_dept_code,user_phone,td.area_id from t_sys_user tu left join t_sys_dept td on td.dept_code = tu.user_dept_code where tu.user_code = ?
+	   ]]>  
+	</sql>
+	<sql id="sql_query_depts_by_area_name" description="查询所有的部门信息">
+	   <![CDATA[ 
+	    select td.*,ts.area_name,t.dept_name p_dept_name from t_sys_dept td left join t_ds_sys_area ts on ts.area_id = td.area_id LEFT JOIN t_sys_dept t on t.dept_code = td.p_dept_code order by dept_level,dept_code
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_sys_flow_role_list_by_id" description="查询所有审批规则">
+	   <![CDATA[ 
+	   	select t.*, GROUP_CONCAT(t.role_name) users_name from (select tr.*, ts.role_code,ts.role_name from t_sys_flow_role tr 
+		LEFT JOIN t_sys_role ts on FIND_IN_SET(ts.role_code,tr.deal_users)
+		order by FIND_IN_SET(ts.role_code,tr.deal_users)) t where id = ? GROUP BY id 
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_sys_flow_role_list" description="查询所有审批规则">
+	   <![CDATA[ 
+	   	select * from t_sys_flow_role where ( flow_type = ? or '-1' = ?) 
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_sys_flow_role_count" description="查询所有审批规则记录">
+	   <![CDATA[ 
+	   	select count(0) from t_sys_flow_role where ( flow_type = ? or '-1' = ?)
+	   ]]> 
+	</sql>
+	<sql id="sql_insert_t_sys_flow_role" description="新增工作流规则">
+	   <![CDATA[ 
+	   	insert into t_sys_flow_role (id,flow_type,role_type,deal_users,extend_str,create_user,create_time,remark) values (?,?,?,?,?,?,?,?)
+	   ]]> 
+	</sql>
+	<sql id="sql_update_t_sys_flow_role" description="修改工作流规则">
+	   <![CDATA[ 
+	   	update t_sys_flow_role set flow_type = ?,role_type = ?,deal_users = ?,extend_str = ?,update_user = ?,update_time = ?,remark = ? where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_delete_t_sys_flow_role" description="删除工作流规则">
+	   <![CDATA[ 
+	   	delete from t_sys_flow_role where id = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_sys_flow_role_type" description="查询工作流">
+	   <![CDATA[ 
+	   	select * from t_sys_flow_role #ID#
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_sys_flow_role_type_by_dept_code" description="查询工作流部门角色">
+	   <![CDATA[ 
+	   	select tr.role_code,tu.user_code,tu.user_name,tu.user_dept_code from t_sys_user_role tr LEFT JOIN t_sys_user tu on tu.user_code = tr.user_code where tu.user_dept_code = ? and tr.role_code = ? and tu.user_code != ?
+	   ]]> 
+	</sql>
+	<sql id="sql_select_t_sys_flow_role_type_by_p_dept_code" description="查询工作流部门角色">
+	   <![CDATA[ 
+	   	select p_dept_code from t_sys_dept where dept_code = ?
+	   ]]> 
+	</sql>
+	<!-- 以下是工作流sql -->
+	<sql id="sql_create_flow_info" description="创建流程基本信息">
+       <![CDATA[
+		 insert into t_sys_flow_info(flow_code,flow_type,flow_name,current_deal_user,create_user,create_time,flow_state,linked_id) values(?,?,?,?,?,?,?,?)
+	   ]]> 
+    </sql>
+    
+    <sql id="sql_insert_flow_deal_user" description="保存流程整个处理用户的信息">
+       <![CDATA[ 
+        insert into t_sys_flow_deal_user(deal_code,next_deal_code,flow_code,deal_user,deal_order) values(?,?,?,?,?)
+       ]]> 
+    </sql>
+    
+    <sql id="sql_insert_deal_record" description="保存处理记录">
+       <![CDATA[ 
+        insert into t_sys_flow_auth_record(record_code,flow_code,deal_code,deal_user,receive_date,deal_date,deal_result) values(?,?,?,?,?,?,?)
+       ]]>  
+    </sql>
+    
+    <sql id="sql_insert_flow_type_selected_users" description="保存用户某一项审批流程选择用户信息">
+       <![CDATA[ 
+        insert into t_sys_flow_type_users(flow_type,create_user,selected_users,create_time) values(?,?,?,?)
+       ]]> 
+    </sql>
+    
+    <sql id="sql_update_flow_type_selected_users" description="更新某一个流程特定用户的选择用户信息">
+       <![CDATA[ 
+        update t_sys_flow_type_users set selected_users = ? where flow_type = ? and create_user = ?
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_flow_info_by_flow_code" description="根据流程编码查询记录基本信息">
+       <![CDATA[  
+        select ti.flow_code,ti.flow_name,ti.current_deal_user,ti.create_user,ti.create_time,ti.flow_state,tu.user_name
+		 from t_sys_flow_info ti
+		 left join t_sys_user tu on ti.create_user = tu.user_phone
+		 where ti.flow_code = ?
+       ]]>  
+    </sql>
+    
+    <sql id="sql_query_flow_deal_records" description="根据流程编码查询流程处理记录">
+       <![CDATA[ 
+        select tr.flow_code,tr.deal_code,tr.deal_user,tr.receive_date,tr.deal_date,tr.deal_result,tr.deal_idea,tr.deal_files,tu.user_name
+         from t_sys_flow_auth_record tr 
+         left join t_sys_user tu on tr.deal_user = tu.user_phone
+         where flow_code = ?
+         order by receive_date
+       ]]>  
+    </sql>
+    
+    <sql id="sql_query_flow_no_deal_users" description="查询当前流程未进入处理状态的流程信息">
+       <![CDATA[ 
+        select tdu.deal_code,tdu.deal_user,tu.user_name
+         from t_sys_flow_deal_user tdu
+         left join t_sys_user tu on tdu.deal_user = tu.user_code
+         where tdu.flow_code = ? and tdu.deal_order > (select deal_order from t_sys_flow_deal_user where deal_code = ?)
+          order by tdu.deal_order
+       ]]>  
+    </sql>
+    
+    <sql id="sql_check_flow_is_legal" description="检查当前处理人处理当前流程是否合法">
+       <![CDATA[ 
+        select count(0) from t_sys_flow_info where flow_code = ? and current_deal_user = ? and flow_state= 'dealing'
+       ]]> 
+    </sql>
+    
+    <sql id="sql_check_flow_record_is_legal" description="检查流程处理记录是否合法">
+       <![CDATA[  
+        select count(0) from t_sys_flow_auth_record where flow_code = ? and deal_user = ? and deal_result='checking'
+       ]]>  
+    </sql>
+    
+    <sql id="sql_query_next_step_deal_code" description="获取下一个处理步骤用户编号">
+       <![CDATA[ 
+        select next_deal_code from t_sys_flow_deal_user where deal_code = (
+		select deal_code from t_sys_flow_auth_record where flow_code = ? and deal_user = ? and deal_result='checking') 
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_deal_code" description="根据处理人和流程编码查询处理编码">
+       <![CDATA[  
+        select deal_code from t_sys_flow_auth_record where flow_code = ? and deal_user = ? and deal_result='checking'
+       ]]>  
+    </sql>
+    
+    <sql id="sql_update_flow_deal_result" description="更新流程处理结果">
+      <![CDATA[   
+        update t_sys_flow_auth_record set deal_date = ? ,deal_result = ? , deal_idea = ? , deal_files = ? where flow_code = ? and deal_user = ? and deal_result = 'checking'
+      ]]>  
+    </sql>
+    
+    <sql id="sql_update_flow_next_deal_user" description="更新流程处理人为下一用户">
+       <![CDATA[     
+        update t_sys_flow_info set current_deal_user = ? ,flow_state = 'dealing',create_time = now() where flow_code = ?
+       ]]>  
+    </sql>
+    
+    <sql id="sql_update_flow_state_end" description="将流程状态置为已结束状态">
+      <![CDATA[     
+        update t_sys_flow_info set flow_state = ? where flow_code = ?
+      ]]>  
+    </sql>
+    
+    <sql id="sql_query_next_deal_user" description="根据下一步处理编码查询下一步流程处理人">
+       <![CDATA[ 
+        select deal_user from  t_sys_flow_deal_user where deal_code = ?
+       ]]>  
+    </sql>
+    
+    <sql id="sql_query_flow_type_selected_users" description="查询流程分析用户所选择的处理人信息">
+       <![CDATA[  
+        select selected_users from t_sys_flow_type_users where flow_type = ? and create_user = ?
+       ]]>  
+    </sql>
+    
+    <sql id="sql_query_flow_create_user" description="根据流程编码查询流程创建人">
+       <![CDATA[  
+        select create_user from t_sys_flow_info where flow_code = ?
+       ]]>   
+    </sql>
+    
+    <sql id="sql_query_flow_by_create_user" description="根据流程创建人查询流程信息">
+       <![CDATA[ 
+        select flow_code,flow_type,flow_name,create_time,flow_state from t_sys_flow_info where create_user = ? order by create_time desc
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_flow_count_by_create_user" description="根据流程处理人查询流程信息数量">
+        <![CDATA[ 
+        select count(0) from t_sys_flow_info where create_user = ?
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_user_dealing_flows" description="查询当前用户审批中的流程">
+       <![CDATA[  
+        select ti.flow_code,ti.flow_type,ti.flow_name,ti.create_time,ti.flow_state,ti.create_user,tu.user_name,tu.extend_third 
+		from t_sys_flow_info ti 
+		left join t_sys_user tu on tu.user_phone=ti.create_user
+		where current_deal_user = ? and flow_state='dealing' order by create_time desc
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_user_dealing_flows_count" description="查询当前用户审批中的流程记录数">
+       <![CDATA[  
+        select count(0)
+		from t_sys_flow_info
+		where current_deal_user = ? and flow_state='dealing'
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_user_dealed_flows" description="查询用户参与审批的流程">
+       <![CDATA[ 
+        select ti.flow_code,ti.flow_type,ti.flow_name,ti.create_time,ti.flow_state,ti.create_user,tu.user_name,tu.extend_third  
+		from t_sys_flow_info ti 
+		left join t_sys_user tu on tu.user_phone=ti.create_user
+		where ti.flow_code in (select distinct flow_code from t_sys_flow_auth_record where deal_user = ? and deal_result!='checking' and deal_result!='apply')
+		 order by create_time desc 
+       ]]>  
+    </sql>
+    
+    <sql id="sql_insert_flow_list_data" description="保存流程列表显示的数据信息">
+       <![CDATA[ 
+        insert into t_sys_flow_list_data(flow_code,data_label,data_value) values(?,?,?)
+       ]]> 
+    </sql>
+    
+    <sql id="sql_query_flow_list_data" description="查询流程当前页数流程的列表显示数据">
+       <![CDATA[  
+        select data_code,flow_code,data_label,data_value from t_sys_flow_list_data where flow_code in (#FLOW_CODES#) order by flow_code,data_code
+       ]]> 
+    </sql>
+    <!-- 以上是工作流sql -->
+
+	<sql id="sql_query_dept_by_dept_code" description="根据编码查询所有的部门信息">
+		<![CDATA[
+	     select t1.*,
+		 (select dept_name FROM t_sys_dept WHERE dept_code = t1.p_dept_code   ) AS p_dept_code_name
+		 from t_sys_dept t1 where dept_code = ?
+	   ]]>
+	</sql>
+
+
+</root>

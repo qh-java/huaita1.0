@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="demo" />
+        <module name="springcloud-api-member-service" />
+        <module name="springcloud-api-order-service" />
+        <module name="springcloud-common" />
+        <module name="springcloud-dss-service-impl" />
+        <module name="springcloud-eureka-server" />
+        <module name="springcloud-gateway-server" />
+        <module name="springcloud-member-service-impl" />
+        <module name="springcloud-order-service-impl" />
+        <module name="springcloud-sso-server" />
+        <module name="springclouddsserviceimpl" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="1.8" />
+      <module name="demo1" target="1.8" />
+      <module name="demo2" target="1.8" />
+      <module name="ds" target="1.8" />
+      <module name="springcloud-api-member-service" target="1.8" />
+      <module name="springcloud-api-order-service" target="1.8" />
+      <module name="springcloud-common" target="1.8" />
+      <module name="springcloud-ds-service-impl" target="1.8" />
+      <module name="springcloud-dss-service-impl" target="1.8" />
+      <module name="springcloud-eureka-server" target="1.8" />
+      <module name="springcloud-gateway-server" target="1.8" />
+      <module name="springcloud-member-service-impl" target="1.8" />
+      <module name="springcloud-order-service-impl" target="1.8" />
+      <module name="springcloud-producer" target="1.8" />
+      <module name="springcloud-service-pom" target="1.8" />
+      <module name="springcloud-sso-server" target="1.8" />
+      <module name="springcloud-zipkin-server" target="1.8" />
+      <module name="springcloud2.0-huaita" target="1.8" />
+      <module name="springclouddsserviceimpl" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
+      <module name="demo1" options="-parameters" />
+      <module name="demo2" options="-parameters" />
+      <module name="ds" options="-parameters" />
+      <module name="springcloud-api-member-service" options="-parameters" />
+      <module name="springcloud-api-order-service" options="-parameters" />
+      <module name="springcloud-common" options="-parameters" />
+      <module name="springcloud-ds-service-impl" options="-parameters" />
+      <module name="springcloud-dss-service-impl" options="-parameters" />
+      <module name="springcloud-eureka-server" options="-parameters" />
+      <module name="springcloud-gateway-server" options="-parameters" />
+      <module name="springcloud-member-service-impl" options="-parameters" />
+      <module name="springcloud-order-service-impl" options="-parameters" />
+      <module name="springcloud-producer" options="-parameters" />
+      <module name="springcloud-sso-server" options="-parameters" />
+      <module name="springcloud-zipkin-server" options="-parameters" />
+      <module name="springclouddsserviceimpl" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-api-member-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-api-order-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-dss-service-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-gateway-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-member-service-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-order-service-impl" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-service-pom" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springcloud-sso-server" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

@@ -1,0 +1,27 @@
+#生产环境
+#服务启动端口
+server:
+  port: 80
+#服务名称（服务注册到eureka的名称）
+spring:
+  application:
+    name: springcloud-gateway-server
+    #表示服务从注册中心读取
+
+#服务注册eureka的地址
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka/
+
+    register-with-erueka: true
+    fetch-registry: true
+
+zuul:
+  routes:
+    api-member:
+      path: /api-member/**
+      serviceId: app-huaita-member
+    api-order:
+      path: /api-order/**
+      serviceId: app-huaita-order

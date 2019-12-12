@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huaita.springcloudssoserver.ds.mapper.SysUserMapper">
+	<resultMap id="BaseResultMap" type="com.huaita.springcloudssoserver.ds.entity.SysUser">
+		<result column="take_date" property="takeDate" jdbcType="VARCHAR" />
+		<result column="area_id" property="areaId" jdbcType="VARCHAR" />
+		<result column="user_code" property="userCode" jdbcType="VARCHAR" />
+		<result column="user_state" property="userState" jdbcType="VARCHAR" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="user_dept_code" property="userDeptCode" jdbcType="VARCHAR" />
+		<result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+		<result column="token" property="token" jdbcType="INTEGER" />
+		<result column="dept_name" property="deptName" jdbcType="VARCHAR" />
+		<result column="dept_show_code" property="deptShowCode" jdbcType="VARCHAR" />
+		<result column="p_dept_code" property="pdeptCode" jdbcType="VARCHAR" />
+		<result column="role_code" property="roleCode" jdbcType="VARCHAR" />
+		<result column="role_name" property="roleName" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="addressBookResultMap" type="com.huaita.springcloudssoserver.ds.entity.AddressUsers">
+		<result column="id" property="id" jdbcType="VARCHAR" />
+		<result column="book_id" property="bookId" jdbcType="VARCHAR" />
+		<result column="user_id" property="userId" jdbcType="VARCHAR" />
+		<result column="user_name" property="userName" jdbcType="VARCHAR" />
+		<result column="dept_name" property="deptName" jdbcType="VARCHAR" />
+	</resultMap>
+
+    <select id="querySysUser" parameterType="string" resultMap="BaseResultMap">
+      select
+        tu.take_date,
+	    td.area_id,
+	    tu.user_code,
+	    tu.user_state,
+	    tu.user_name,
+	    tu.user_dept_code,
+	    tu.user_phone,
+	    tu.token,
+	    td.dept_name,
+	    td.dept_show_code,
+	    td.p_dept_code,
+	    tsu.role_code,
+		tsr.role_name
+	    from t_sys_user tu
+	    left join t_sys_dept td on td.dept_code = tu.user_dept_code
+	    left join t_sys_user_role tsu on tsu.user_code = tu.user_code
+	    left join t_sys_role tsr on tsr.role_code = tsu.role_code
+	    where tu.user_code = #{userCode} and tu.user_password = #{userPassword}
+    </select>
+    <select id="queryAddressBookUserByUserId" parameterType="string" resultMap="addressBookResultMap">
+     	select
+		id,
+		book_id,
+		user_id,
+		user_name,
+		dept_name
+     	from
+     	t_ds_sys_address_users
+     	where
+     	user_id = #{userId}
+    </select>
+
+    <!--<insert id="saveUser" parameterType="user" >-->
+         <!--insert into user (name)values (#{name})-->
+    <!--</insert>-->
+</mapper>

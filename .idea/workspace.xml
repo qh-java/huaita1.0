@@ -1,0 +1,1344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0f1c03bb-7403-4130-bfbe-bb4a2f0dad7a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-api-member-service/springcloud-api-member-service.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/constant/HttpResponseBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/constant/ResultMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/dto/DateJsonValueProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/util/HttpUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/util/JsonHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/cache/CacheUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/config/RedisCacheAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/dao/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/entity/SysFun.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/entity/SysMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/entity/SysUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/rest/MainServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-eureka-server/src/main/resources/application-sit.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/cache/CacheUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/config/RedisCacheAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/constants/HttpResponseBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/constants/ResultMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/dao/DBUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/dao/IDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/entity/AddressUsers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/entity/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/entity/SysUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/mapper/SysUserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/service/BaseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/service/SysUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/service/impl/SysUserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/sql/SqlCacheHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/sql/SqlXml.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/util/HttpUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/util/IDUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/util/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/util/MD5Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/util/Read.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/web/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/web/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/web/util/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/conf/set.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/conf/sql/ds_sql_mysql.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/conf/sql/flow_sql_mysql.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/conf/sql/sys_sql_mysql.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/mybatis/mapper/SysUserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/set.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/sql/ds_sql_mysql.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/sql/flow_sql_mysql.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/sql/sys_sql_mysql.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-api-member-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-api-member-service/src/main/java/com/huaita/springcloudapimemberservice/controller/MemberService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-api-member-service/src/main/java/com/huaita/springcloudapimemberservice/dto/MemberInfoDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-api-order-service/src/main/java/com/huaita/springcloudapiorderservice/controller/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-api-order-service/src/main/java/com/huaita/springcloudapiorderservice/controller/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/base/BaseApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/base/BaseApiService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/dto/ResponseBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/constant/ResponseBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-eureka-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-eureka-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-eureka-server/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-eureka-server/src/main/resources/application-local.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-gateway-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-gateway-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-gateway-server/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-gateway-server/src/main/resources/application-local.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-member-service-impl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-member-service-impl/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/java/com/huaita/springcloudmemberserviceimpl/SpringcloudMemberServiceImplApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/java/com/huaita/springcloudmemberserviceimpl/SpringcloudMemberServiceImplApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/java/com/huaita/springcloudmemberserviceimpl/controller/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/java/com/huaita/springcloudmemberserviceimpl/controller/MemberServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/resources/application-local.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/resources/application-prd.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/resources/application-prd.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-member-service-impl/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-order-service-impl/src/main/java/com/huaita/springcloudorderserviceimpl/Feign/MemberFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-order-service-impl/src/main/java/com/huaita/springcloudorderserviceimpl/Feign/MemberFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-order-service-impl/src/main/java/com/huaita/springcloudorderserviceimpl/SpringcloudOrderServiceImplApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-order-service-impl/src/main/java/com/huaita/springcloudorderserviceimpl/SpringcloudOrderServiceImplApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-order-service-impl/src/main/java/com/huaita/springcloudorderserviceimpl/controller/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-order-service-impl/src/main/java/com/huaita/springcloudorderserviceimpl/controller/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-order-service-impl/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-order-service-impl/src/main/resources/application-local.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-order-service-impl/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-order-service-impl/src/main/resources/logback-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-producer/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-producer/src/main/java/com/huaita/service/springcloudproducer/Feign/MemberFeign.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-producer/src/main/java/com/huaita/service/springcloudproducer/SpringcloudProducerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-producer/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-producer/src/test/java/com/huaita/service/springcloudproducer/SpringcloudProducerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-service-pom/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/springcloud-service-pom/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-zipkin-server/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-zipkin-server/src/main/java/com/huaita/springcloudzipkinserver/SpringcloudZipkinServerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-zipkin-server/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/springcloud-zipkin-server/src/test/java/com/huaita/springcloudzipkinserver/SpringcloudZipkinServerApplicationTests.java" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-gateway-server/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-order-service-impl/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-member-service-impl/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-producer/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-common/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-api-order-service/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-service-pom/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-zipkin-server/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-eureka-server/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-api-member-service/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-sso-server/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-ds-service-impl/target/" />
+    <ignored path="$PROJECT_DIR$/demo/target/" />
+    <ignored path="$PROJECT_DIR$/demo1/target/" />
+    <ignored path="$PROJECT_DIR$/demo2/target/" />
+    <ignored path="$PROJECT_DIR$/ds/target/" />
+    <ignored path="$PROJECT_DIR$/springcloud-dss-service-impl/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/rest/MainServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#712#730#1" expanded="true" />
+                <element signature="e#786#802#0" expanded="true" />
+                <element signature="e#863#878#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/config/RedisCacheAutoConfiguration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="18" column="65" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/config/WebMvcConfigurer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/interceptor/LoginInterceptor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="620">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
+              <folding>
+                <element signature="e#1512#1528#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/web/util/JwtUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/SpringcloudSsoServerApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="158">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+              <folding>
+                <element signature="e#638#639#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springcloud-sso-server/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="108" selection-start-line="108" selection-end-line="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springcloud-service-pom/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/SpringcloudDssServiceImplApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+              <folding>
+                <element signature="e#957#958#0" expanded="true" />
+                <element signature="e#1044#1045#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getMember</find>
+      <find>web</find>
+      <find>JD</find>
+      <find>druid</find>
+      <find>LettuceConnectionFactory</find>
+      <find>CacheHelper</find>
+      <find>PropertySource</find>
+      <find>httpcomponents-core</find>
+      <find>common</find>
+      <find>httpclient</find>
+      <find>httpcore</find>
+      <find>redis</find>
+      <find>pool</find>
+      <find>pool2</find>
+      <find>SQL must not be null</find>
+      <find>sql_user_login</find>
+      <find>test</find>
+      <find>2.1.9</find>
+      <find>springcloud-ds</find>
+      <find>user</find>
+      <find>8761</find>
+      <find>spring-boot-st</find>
+      <find>SER</find>
+      <find>redisTemplate</find>
+      <find>httpresponsebean</find>
+      <find>CacheUtil</find>
+      <find>system.ip.port</find>
+      <find>org.my</find>
+      <find>mybatis</find>
+      <find>mybatis-spring</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>redisCacheTemplate</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/springcloud-gateway-server/src/main/java/com/huaita/springcloudgatewayserver/SpringcloudGatewayServerApplication.java" />
+        <option value="$PROJECT_DIR$/springcloud-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-member-service-impl/src/main/resources/application-local.yml" />
+        <option value="$PROJECT_DIR$/springcloud-eureka-server/src/main/resources/application-local.yml" />
+        <option value="$PROJECT_DIR$/springcloud-gateway-server/src/main/resources/application-local.yml" />
+        <option value="$PROJECT_DIR$/springcloud-member-service-impl/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/service/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/service/controller/TestSerController.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/resources/application-local.yml" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/util/IDUtil.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/conf/sql/ds_sql_mysql.xml" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/sql/SqlCacheHelper.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/conf/set.properties" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/model/SysUser.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/config/RedisCacheAutoConfiguration.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/cache/CacheUtil.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/mybatis/mapper/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/constants/HttpResponseBean.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/SpringcloudSsoServerApplication.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/entity/SysUser.java" />
+        <option value="$PROJECT_DIR$/springcloud-member-service-impl/src/main/java/com/huaita/springcloudmemberserviceimpl/controller/MemberServiceImpl.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/entity/AddressUsers.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/mapper/SysUserMapper.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/service/impl/SysUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/resources/mybatis/mapper/SysUserMapper.xml" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/service/SysUserService.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/util/JwtUtil.java" />
+        <option value="$PROJECT_DIR$/springcloud-gateway-server/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/service/MainServiceImpl.java" />
+        <option value="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/constant/HttpResponseBean.java" />
+        <option value="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/constant/ResponseBase.java" />
+        <option value="$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/base/BaseApiService.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/interceptor/LoginInterceptor.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/resources/conf/set.properties" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/cache/CacheUtil.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/SpringcloudDssServiceImplApplication.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/config/RedisCacheAutoConfiguration.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/entity/SysUser.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/entity/SysFun.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/entity/SysMenu.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/web/util/JwtUtil.java" />
+        <option value="$PROJECT_DIR$/springcloud-sso-server/pom.xml" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/rest/MainServiceImpl.java" />
+        <option value="$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/config/WebMvcConfigurer.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/应用软件/maven/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="D:\mavenstorge\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="springcloud-eureka-server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="springcloud-service-pom" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="springcloud2.0-huaita" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="30" />
+    <option name="y" value="10" />
+    <option name="width" value="1750" />
+    <option name="height" value="980" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-dss-service-impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-dss-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-dss-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-dss-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-dss-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springclouddssserviceimpl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-dss-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springclouddssserviceimpl" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-dss-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springclouddssserviceimpl" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-dss-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springclouddssserviceimpl" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-dss-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springclouddssserviceimpl" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-dss-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springclouddssserviceimpl" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="rest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-dss-service-impl" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-eureka-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-eureka-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-eureka-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-eureka-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-eureka-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloudeurekaserver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springcloud2.0-huaita" type="462c0819:PsiDirectoryNode" />
+              <item name="springcloud-sso-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springcloud2.0-huaita" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576161810970" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../huaita/nj" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.41724136" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="OPEN_URL_DIALOG">
+      <recent name="http://118.31.35.166:8880/root/nj.git" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.huaita.springclouddssserviceimpl.web.entity" />
+      <recent name="com.huaita.springclouddssserviceimpl.web.config" />
+      <recent name="com.huaita.springclouddssserviceimpl.web.cache" />
+      <recent name="com.huaita.springcloudcommon.constant" />
+      <recent name="com.huaita.springclouddssserviceimpl.web.rest" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\springcloud2.0-huaita\springcloud-dss-service-impl\src\main\java\com\huaita\springclouddssserviceimpl\web\entity" />
+      <recent name="D:\workspace\springcloud2.0-huaita\springcloud-sso-server\src\main\resources" />
+      <recent name="D:\workspace\springcloud2.0-huaita\springcloud-sso-server\src\main" />
+      <recent name="D:\workspace\springcloud2.0-huaita\springcloud-dss-service-impl\src\main\java\com\huaita\springclouddssserviceimpl" />
+      <recent name="D:\workspace\springcloud2.0-huaita\springcloud-dss-service-impl\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SpringcloudDssServiceImplApplication">
+    <configuration name="SpringcloudSsoServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.huaita.springcloudssoserver.SpringcloudSsoServerApplication" />
+      <module name="springcloud-sso-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.huaita.springcloudssoserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringcloudDssServiceImplApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="springcloud-dss-service-impl" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.huaita.springclouddssserviceimpl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.huaita.springclouddssserviceimpl.SpringcloudDssServiceImplApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringcloudEurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="springcloud-eureka-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.huaita.springcloudeurekaserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.huaita.springcloudeurekaserver.SpringcloudEurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringcloudGatewayServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springcloud-gateway-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.huaita.springcloudgatewayserver.SpringcloudGatewayServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringcloudMemberServiceImplApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springcloud-member-service-impl" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.huaita.springcloudmemberserviceimpl.SpringcloudMemberServiceImplApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringcloudSsoServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springcloud-sso-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.huaita.springcloudssoserver.SpringcloudSsoServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.SpringcloudDssServiceImplApplication" />
+        <item itemvalue="Application.SpringcloudSsoServerApplication" />
+        <item itemvalue="Spring Boot.SpringcloudEurekaServerApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0f1c03bb-7403-4130-bfbe-bb4a2f0dad7a" name="Default Changelist" comment="" />
+      <created>1573574023239</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1573574023239</updated>
+      <workItem from="1573574026409" duration="1254000" />
+      <workItem from="1573748733367" duration="537000" />
+      <workItem from="1573968817719" duration="11411000" />
+      <workItem from="1574413896607" duration="381000" />
+      <workItem from="1574493912954" duration="595000" />
+      <workItem from="1574605252194" duration="2235000" />
+      <workItem from="1574611301954" duration="49000" />
+      <workItem from="1574654252569" duration="1311000" />
+      <workItem from="1574671954636" duration="1875000" />
+      <workItem from="1574681226162" duration="167000" />
+      <workItem from="1575025494138" duration="1889000" />
+      <workItem from="1575028959726" duration="2737000" />
+      <workItem from="1575124610895" duration="14788000" />
+      <workItem from="1575353941174" duration="6065000" />
+      <workItem from="1575367793489" duration="10914000" />
+      <workItem from="1575595082269" duration="19725000" />
+      <workItem from="1575796931731" duration="2458000" />
+      <workItem from="1575854719873" duration="23790000" />
+      <workItem from="1575901006061" duration="1324000" />
+      <workItem from="1575902457032" duration="519000" />
+      <workItem from="1575904237199" duration="394000" />
+      <workItem from="1575906634462" duration="5978000" />
+      <workItem from="1575939962430" duration="47045000" />
+      <workItem from="1576112943333" duration="23177000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="180618000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.39008042" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3427762" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" weight="0.52974504" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3427762" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067025" side_tool="true" weight="0.5750708" />
+      <window_info anchor="bottom" id="Spring" order="12" weight="0.3286119" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.4716714" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" visible="true" weight="0.02010724" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.40482575" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49932975" visible="true" weight="0.47450426" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.12464589" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067025" side_tool="true" weight="0.5750708" />
+      <window_info anchor="bottom" id="Spring" order="12" weight="0.3286119" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.3286119" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" visible="true" weight="0.12868632" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/cache/CacheUtil.java</url>
+          <line>134</line>
+          <properties />
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/rest/MainServiceImpl.java</url>
+          <line>37</line>
+          <properties />
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/interceptor/LoginInterceptor.java</url>
+          <line>23</line>
+          <properties />
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="cacheUtil" />
+        <watch expression="getPath(clazz)" />
+        <watch expression="sqlCacheHelper.getSql(this.sqlFile, BaseService.class, sqlId)" />
+        <watch expression="getSql" />
+        <watch expression="getSql(&quot;sql_user_login&quot;)" />
+        <watch expression="(String)sqls.get(sqlId)" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/entity/HttpResponseBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/constants/HttpResponseBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-35">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/model/SysUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-member-service-impl/src/main/java/com/huaita/springcloudmemberserviceimpl/SpringcloudMemberServiceImplApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="15" selection-start-line="15" selection-end-line="15" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-member-service-impl/src/main/java/com/huaita/springcloudmemberserviceimpl/dao/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/resources/mybatis/mapper/SysUserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/entity/SysUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="28" />
+          <folding>
+            <element signature="e#1191#1192#0" expanded="true" />
+            <element signature="e#1233#1234#0" expanded="true" />
+            <element signature="e#1269#1270#0" expanded="true" />
+            <element signature="e#1301#1302#0" expanded="true" />
+            <element signature="e#1351#1352#0" expanded="true" />
+            <element signature="e#1393#1394#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/entity/AddressUsers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="25" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/service/SysUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/util/JwtUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" selection-start-line="4" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-gateway-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-eureka-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" selection-start-line="5" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/service/controller/TestSerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/constant/ResultMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/dto/ResponseBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-member-service-impl/src/main/java/com/huaita/springcloudmemberserviceimpl/controller/MemberServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="23" column="14" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-order-service-impl/src/main/java/com/huaita/springcloudorderserviceimpl/controller/OrderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/controller/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="17" selection-start-line="17" selection-end-line="21" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/service/MainServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/dto/HttpResponseBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/constant/ResponseBase.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/dto/DateJsonValueProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/constant/HttpResponseBean.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/base/BaseApiService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="6" column="16" lean-forward="true" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-common/src/main/java/com/huaita/springcloudcommon/util/JsonHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="59" column="29" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/config/RedisCacheAutoConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/cache/CacheUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="206" column="7" lean-forward="true" selection-start-line="206" selection-start-column="7" selection-end-line="206" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-order-service-impl/src/main/java/com/huaita/springcloudorderserviceimpl/SpringcloudOrderServiceImplApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="26" selection-start-line="26" selection-end-line="32" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/cache/CacheUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/resources/conf/set.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/mapper/SysUserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/service/impl/SysUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/entity/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/entity/SysUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1634">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/entity/SysFun.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/entity/SysMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-eureka-server/src/main/java/com/huaita/springcloudeurekaserver/SpringcloudEurekaServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/web/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-266">
+          <folding>
+            <element signature="e#0#2921#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/ds/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="51" column="11" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/web/util/JwtUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/src/main/java/com/huaita/springcloudssoserver/SpringcloudSsoServerApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#638#639#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-service-pom/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-sso-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="108" selection-start-line="108" selection-end-line="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/SpringcloudDssServiceImplApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding>
+            <element signature="e#957#958#0" expanded="true" />
+            <element signature="e#1044#1045#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/config/RedisCacheAutoConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="18" column="65" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/config/WebMvcConfigurer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/rest/MainServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#712#730#1" expanded="true" />
+            <element signature="e#786#802#0" expanded="true" />
+            <element signature="e#863#878#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/springcloud-dss-service-impl/src/main/java/com/huaita/springclouddssserviceimpl/web/interceptor/LoginInterceptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="e#1512#1528#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>springcloud-eureka-server</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.41724136" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: antlr:antlr:2.7.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

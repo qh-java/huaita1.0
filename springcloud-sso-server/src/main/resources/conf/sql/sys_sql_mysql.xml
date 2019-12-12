@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+
+	<sql id="sql_query_user_menus" description="查询用户所具有的菜单权限">
+   	  <![CDATA[
+		select distinct tm.menu_desc,trm.menu_code,tm.menu_name,tm.parent_menu_code,tm.menu_link,tm.menu_icon,tm.menu_order
+		from t_sys_role_menu trm
+		left join t_sys_menu tm on trm.menu_code = tm.menu_code
+		where trm.role_code in (select role_code from t_sys_user_role where user_code = ?)
+		order by tm.parent_menu_code,tm.menu_order
+	  ]]>
+	</sql>
+	
+	<sql id="sql_query_user_menu_methods" description="查询用户所有的菜单方法">
+	   <![CDATA[ 
+	    select distinct trm.menu_code,tm.menu_name,tm.menu_methods,tm.parent_menu_code,tm.menu_order
+		from t_sys_role_menu trm
+		left join t_sys_menu tm on trm.menu_code = tm.menu_code
+		where trm.role_code in (select role_code from t_sys_user_role where user_code = ?)
+		order by tm.parent_menu_code,tm.menu_order
+	   ]]> 
+	</sql>
+	
+	<sql id="sql_query_user_menu_functions" description="查询用户所具有的功能权限">
+	   <![CDATA[ 
+	    select distinct mf.menu_code,mf.fun_code,mf.fun_name,mf.fun_methods,mf.fun_order
+		 from t_sys_role_function rf
+		 left join t_sys_menu_function mf on mf.fun_code = rf.fun_code and mf.menu_code = rf.menu_code
+		 where rf.role_code in (select role_code from t_sys_user_role where user_code = ?)
+		 order by mf.menu_code,mf.fun_order
+	   ]]> 
+	</sql>
+	
+	<sql id="sql_query_top_menus" description="查询所有的顶级菜单">
+	  <![CDATA[  
+	    select system_code,menu_code,menu_name,menu_order,menu_icon,parent_menu_code,menu_desc from t_sys_menu where parent_menu_code = 0 order by menu_order
+	  ]]>  
+	</sql>
+	
+	<sql id="sql_query_all_dic" description="查询所有的字典">
+	  <![CDATA[    
+	    select dic_code,dic_name from t_sys_dic order by create_date
+	  ]]>   
+	</sql>
+	
+	<sql id="sql_query_all_dic_value" description="查询所有的字典值数据">
+	   <![CDATA[     
+	    select dic_value_code,dic_value_text,dic_code,dic_order from t_sys_dic_value order by dic_code,dic_order
+	   ]]>    
+	</sql>
+	
+	<sql id="sql_user_login" description="用户登录SQL">
+	   <![CDATA[ 
+	    select tu.take_date,
+	    td.area_id,
+	    tu.user_code,
+	    tu.user_state,
+	    tu.user_name,
+	    tu.user_dept_code,
+	    tu.user_phone,
+	    tu.token,
+	    td.dept_name,
+	    td.dept_show_code,
+	    td.p_dept_code,
+	    tsu.role_code,
+		tsr.role_name
+	    from t_sys_user tu
+	    left join t_sys_dept td on td.dept_code = tu.user_dept_code
+	    left join t_sys_user_role tsu on tsu.user_code = tu.user_code
+	    left join t_sys_role tsr on tsr.role_code = tsu.role_code
+	    where tu.user_code = ? and tu.user_password = ?
+	   ]]>  
+	</sql>
+	<sql id="sql_find_one_user" description="查找单个用户">
+	   <![CDATA[ 
+	    select * from t_sys_user tu where user_code = ?
+	   ]]>  
+	</sql>
+	<sql id="sql_find_user_by_phone" description="根据手机号码查找单个用户">
+	   <![CDATA[ 
+	    select tu.take_date,td.area_id, tu.user_code,tu.user_state,tu.user_name,tu.user_dept_code,tu.user_phone,td.dept_name,td.dept_show_code,td.p_dept_code
+	    from t_sys_user tu
+	    left join t_sys_dept td on td.dept_code = tu.user_dept_code 
+	    where tu.user_phone = ?
+	   ]]>  
+	</sql>
+	<sql id="sql_query_sys_setter" description="查询系统配置信息">
+	   <![CDATA[  
+	    select setter_code,setter_value,setter_desc from t_sys_setter order by setter_code
+	   ]]>   
+	</sql>
+	
+	<sql id="sql_query_depts" description="查询所有的部门信息">
+	   <![CDATA[ 
+	    select dept_code,dept_show_code,dept_name,p_dept_code,dept_level from t_sys_dept order by dept_level,dept_code
+	   ]]> 
+	</sql>
+	<sql id="sql_query_depts_by_area_name" description="查询所有的部门信息">
+	   <![CDATA[ 
+	    select td.*,ts.area_name,t.dept_name p_dept_name from t_sys_dept td left join t_ds_sys_area ts on ts.area_id = td.area_id LEFT JOIN t_sys_dept t on t.dept_code = td.p_dept_code order by dept_level,dept_code
+	   ]]>
+	</sql>
+
+    <sql id="sql_query_depts_by_area_name1" description="根据条件查询所有的部门信息">
+        <![CDATA[
+	    select td.*,ts.area_name,t.dept_name p_dept_name from t_sys_dept td left join t_ds_sys_area ts on ts.area_id = td.area_id LEFT JOIN t_sys_dept t on t.dept_code = td.p_dept_code where td.dept_code not in(0,1) order by dept_level,dept_code
+	   ]]>
+    </sql>
+
+	<sql id="sql_query_depts_by_dept_name" description="根据名称查询所有的部门信息">
+	   <![CDATA[ 
+	    select * from t_sys_dept where dept_name like ?
+	   ]]> 
+	</sql>
+	<sql id="sql_query_dept_by_dept_code" description="根据编码查询所有的部门信息">
+	   <![CDATA[ 
+	    select * from t_sys_dept where dept_code = ?
+	   ]]> 
+	</sql>
+	<sql id="sql_insert_dept" description="增加部门信息">
+	   <![CDATA[ 
+	      insert into t_sys_dept (dept_code ,dept_show_code ,dept_name,p_dept_code ,dept_level ,create_user ,create_date ,area_id ,major_leader ,major_leader_phone ,division_leader ,division_leader_phone ,dept_address ,dept_post_code ,dept_location_coord ,
+  		  dept_duty ,dept_fox ,dept_phone ,on_duty_phone ,complaint_fixed_phone,complaint_phone ,complaint_mail ,remark ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+	   ]]> 
+	</sql>
+	
+	<sql id="sql_update_dept" description="更新部门信息">
+	   <![CDATA[  
+	    update t_sys_dept set dept_show_code =?,dept_name =?,p_dept_code =?,dept_level =?,create_user =?,create_date =?,area_id =?,major_leader =?,major_leader_phone =?,division_leader =?,division_leader_phone =?,dept_address =?,dept_post_code =?,dept_location_coord =?,dept_duty =?,dept_fox =?,dept_phone =?,on_duty_phone =?,complaint_fixed_phone =?,complaint_phone =?,complaint_mail =?,remark =? where dept_code = ?
+	   ]]>  
+	</sql>
+	<sql id="sql_query_son_dept" description="查询子部门">
+	   <![CDATA[  
+	    select dept_code,dept_show_code,dept_name,p_dept_code,dept_level,create_user,create_date from  t_sys_dept where p_dept_code = ?
+	   ]]>  
+	</sql>
+	<sql id="sql_delete_dept" description="删除部门">
+	   <![CDATA[  
+	    delete from t_sys_dept where dept_code = ?
+	   ]]>  
+	</sql>
+	
+	<sql id="sql_query_report_setter_list" description="查询报表设置列表">
+	   <![CDATA[ 
+	    select report_code,report_desc,pager_enabled,data_sql,data_count_sql from t_sys_report_setter
+	   ]]>   
+	</sql>
+	
+	<sql id="sql_search_report_setters" description="查询报表信息分页数据">
+	   <![CDATA[  
+	    select ts.report_code,ts.report_page,ts.report_desc,ts.pager_enabled,ts.data_sql,ts.data_count_sql,tu.user_name create_user,ts.create_date 
+		from t_sys_report_setter ts 
+		left join t_sys_user tu on ts.create_user = tu.user_code
+		where ts.report_desc like ? order by ts.create_date
+	   ]]>    
+	</sql>
+	
+	<sql id="sql_search_report_setter_count" description="查询报表信息分页记录数">
+	    <![CDATA[  
+	    select count(0) from t_sys_report_setter where report_desc like ?
+	   ]]> 
+	</sql>
+	
+	<sql id="sql_insert_report_setter" description="新增报表配置信息">
+	    <![CDATA[ 
+	      insert into t_sys_report_setter(report_code,report_page,report_desc,pager_enabled,data_sql,data_count_sql,create_user,create_date) values(?,?,?,?,?,?,?,?)
+	    ]]> 
+	</sql>
+	
+	<sql id="sql_update_report_setter" description="更新报表配置信息">
+	    <![CDATA[
+	      update t_sys_report_setter set report_page = ?,report_desc = ?,pager_enabled = ?,data_sql = ?,data_count_sql = ? where report_code = ?
+	    ]]> 
+	</sql>
+	
+	<sql id="sql_delete_report_setter" description="删除报表配置信息">
+	    <![CDATA[
+	      delete from t_sys_report_setter where report_code = ?
+	    ]]> 
+	</sql>
+	
+	<sql id="sql_insert_setter_info" description="增加系统配置参数">
+	    <![CDATA[
+	    insert into t_sys_setter(setter_code,setter_value,setter_desc) values(?,?,?)
+	    ]]> 
+	</sql>
+	
+	<sql id="sql_update_setter_info" description="修改系统配置参数">
+	    <![CDATA[
+	    update t_sys_setter set setter_value = ?,setter_desc = ? where setter_code = ?
+	    ]]> 
+	</sql>
+	
+	<sql id="sql_delete_setter_info" description="删除系统配置参数">
+	    <![CDATA[
+	    delete from t_sys_setter where setter_code = ?
+	    ]]> 
+	</sql>
+	
+	<sql id="sql_query_all_menus" description="查询所有菜单信息">
+	   <![CDATA[ 
+	   SELECT
+			tm1.menu_desc,
+			tm1.menu_code,
+			tm1.menu_name,
+			tm1.menu_order,
+			tm1.menu_icon,
+			tm1.parent_menu_code,
+			tm1.menu_link,
+			tm1.menu_methods,
+			tm1.system_code,
+			tm2.menu_name parent_menu_name
+		FROM
+			t_sys_menu tm1
+		LEFT JOIN t_sys_menu tm2 ON tm2.menu_code = tm1.parent_menu_code
+		ORDER BY
+			menu_order
+	   ]]> 
+	</sql>
+	
+	<sql id="sql_query_dic_list" description="查询所有字典列表">
+	   <![CDATA[
+	    select dic_code,dic_name from t_sys_dic order by create_date desc
+	   ]]>  
+	</sql>
+	<sql id="sql_query_dic_value_count" description="查询字典值数量">
+	    <![CDATA[
+	     select count(0) from t_sys_dic_value where dic_code = ?
+	    ]]>  
+	</sql>
+	<sql id="sql_query_dic_value_list" description="查询字典值列表">
+	    <![CDATA[
+	     select dic_value_code,dic_value_text,dic_order,dic_code from t_sys_dic_value where dic_code = ? order by dic_order 
+	    ]]>  
+	</sql>
+	<sql id="sql_query_dic_info" description="查询字典信息">
+	   <![CDATA[
+	    select dic_code,dic_name from t_sys_dic where dic_code = ?
+	   ]]>  
+	</sql>
+	<sql id="sql_insert_dic_info" description="增加字典信息">
+	    <![CDATA[
+	     insert into t_sys_dic(dic_code,dic_name,create_user,create_date) values(?,?,?,?)
+	    ]]>  
+	</sql>
+	
+	<sql id="sql_update_dic_info" description="更新字典信息">
+	    <![CDATA[
+	     update t_sys_dic set dic_name = ? where dic_code = ?
+	    ]]>  
+	</sql>
+	
+	<sql id="sql_delete_dic_info" description="删除字典信息">
+	    <![CDATA[
+	     delete from t_sys_dic where dic_code = ?
+	    ]]>  
+	</sql>
+	<sql id="sql_delete_dic_value_info" description="删除字典信息具体表">
+	    <![CDATA[
+	     delete from t_sys_dic_value where dic_code = ?
+	    ]]>  
+	</sql>
+	<sql id="sql_delete_dic_values" description="根据字典编码删除字典信息">
+	    <![CDATA[
+	     delete from t_sys_dic_value where dic_code = ?
+	    ]]>  
+	</sql>
+	<sql id="sql_insert_dic_values_info" description="增加字典信息表值">
+	    <![CDATA[
+	     insert into t_sys_dic_value (dic_code,dic_value_code,dic_value_text,dic_order) values(?,?,?,?)
+	    ]]>  
+	</sql>
+	<sql id="sql_query_all_role" description="查询所有的权限">
+	    <![CDATA[
+	    select * from t_sys_role
+	    ]]>  
+	</sql>
+	
+	<sql id="sql_query_all_functions" description="查询所有具有的权限">
+	    <![CDATA[
+	      select menu_code,fun_code,fun_name,fun_order from t_sys_menu_function order by menu_code,fun_order
+	    ]]>
+	</sql>
+	
+	<sql id="sql_query_role_menus" description="查询角色所具有的菜单权限">
+	    <![CDATA[
+	    select role_code,menu_code from  t_sys_role_menu where role_code = ?
+	    ]]>
+	</sql>
+	
+	<sql id="sql_query_role_functions" description="查询菜单所具有的功能权限">
+	    <![CDATA[
+	     select menu_code,fun_code from t_sys_role_function where role_code = ? order by menu_code
+	    ]]>
+	</sql>    
+	
+	<sql id="sql_insert_sys_role" description="新增角色信息">
+	   <![CDATA[ 
+	    insert into t_sys_role(role_code,role_name,role_desc) values(?,?,?)
+	   ]]> 
+	</sql>
+	
+	<sql id="sql_update_sys_role" description="修改角色信息">
+	   <![CDATA[
+	    update t_sys_role set role_name = ?,role_desc = ? where role_code = ? 
+	   ]]> 
+	</sql>
+	
+	<sql id="sql_delete_sys_role" description="删除角色信息">
+	   <![CDATA[ 
+	    delete from t_sys_role where role_code = ?
+	   ]]>  
+	</sql>
+	
+	<sql id="sql_insert_role_menu_info" description="添加角色菜单信息">
+	   <![CDATA[  
+	    insert into t_sys_role_menu(role_code,menu_code) values(?,?)
+	   ]]> 
+	</sql>
+	
+	<sql id="sql_insert_role_menu_fun_info" description="添加角色菜单功能信息">
+	   <![CDATA[  
+	    insert into t_sys_role_function(role_code,menu_code,fun_code) values(?,?,?)
+	   ]]> 
+	</sql>
+	
+	<sql id="sql_query_user_list" description="查询用户列表数据">
+	    <![CDATA[  
+	    select ts.office_phone,ts.user_fox,ts.id_card_num,ts.take_date,ts.remark, ts.extend_second,tr.role_code,ts.user_code,ts.user_dept_code,ts.user_name,ts.user_state,ts.user_phone,ts.user_sex,tu.user_name createuser,ts.create_date from t_sys_user ts
+         left join t_sys_user tu on tu.user_code = ts.create_user left join t_sys_user_role tr on ts.user_code = tr.user_code
+         where ts.user_dept_code = ? and ts.user_name like ? and ts.user_code like ? order by ts.create_date desc
+	    ]]>
+	</sql>
+	
+	<sql id="sql_query_user_list_count" description="查询用户列表数据记录数">
+	    <![CDATA[ 
+	    select count(0) from t_sys_user where user_dept_code = ? and user_name like ? and user_code like ?
+	    ]]>
+	</sql>
+	
+	<sql id="sql_insert_user_role" description="增加用户角色信息">
+	    <![CDATA[ 
+	    insert into t_sys_user_role(role_code,user_code) values(?,?) 
+	    ]]>
+	</sql>
+	<sql id="sql_update_user_state" description="用户状态操作">
+	    <![CDATA[ 
+	    update t_sys_user set user_state = ? where user_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_insert_sys_user" description="增加用户">
+	    <![CDATA[ 
+	    insert into t_sys_user (user_code,user_name,user_password,user_dept_code,user_phone,user_sex,user_state,create_user,create_date,extend_second,office_phone,user_fox,id_card_num,take_date,remark,token) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+	    ]]>
+	</sql>
+	<sql id="sql_update_sys_user" description="修改用户">
+	    <![CDATA[ 
+	    update t_sys_user set user_name = ?,user_dept_code = ?,user_phone = ?,user_sex = ?,create_user = ?,create_date = ?,extend_second = ?,office_phone = ?,user_fox = ?,id_card_num = ?,take_date = ?,remark = ?,token = ? where user_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_update_sys_user_token" description="更新token">
+	    <![CDATA[ 
+	    update t_sys_user set token = ? where user_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_update_user_password" description="重置用户密码">
+	    <![CDATA[ 
+	    update t_sys_user set user_password = ? where user_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_select_menu_by_code" description="根据编码查找菜单">
+	   <![CDATA[ 
+	    select * from t_sys_menu where menu_code = ?
+	   ]]>  
+	</sql>
+	<sql id="sql_find_one_menu" description="查找单个菜单">
+	   <![CDATA[ 
+	    select menu_code,menu_name from t_sys_menu where menu_name = ?
+	   ]]>  
+	</sql>
+	<sql id="sql_find_one_menu_other" description="查询除自己以外的菜单">
+	    <![CDATA[
+	    select menu_code,menu_name from t_sys_menu where menu_code != ? and menu_name = ?
+	    ]]>
+	</sql>
+	<sql id="sql_insert_one_menu" description="插入一个菜单">
+	    <![CDATA[
+	    insert into  t_sys_menu (menu_name,menu_desc,menu_order,menu_icon,parent_menu_code,menu_link,menu_methods,create_user,create_date) values (?,?,?,?,?,?,?,?,?)
+	    ]]>
+	</sql>
+	<sql id="sql_insert_one_menu_function" description="插入一个方法">
+	    <![CDATA[
+	    insert into  t_sys_menu_function (fun_code,menu_code,fun_name,fun_order,fun_methods) values (?,?,?,?,?)
+	    ]]>
+	</sql>
+	<sql id="sql_update_one_menu_function" description="更新一个方法">
+	    <![CDATA[
+	    update t_sys_menu_function set fun_name =?,fun_methods = ? where fun_code = ? and menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_update_one_menu" description="修改菜单">
+	    <![CDATA[
+	    update t_sys_menu set menu_name = ?,menu_desc = ?,menu_link = ?,menu_methods = ?,menu_icon = ? where menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_update_one_menu_change_top_menu" description="修改菜单">
+	    <![CDATA[
+	    update t_sys_menu set menu_name = ?,menu_desc = ?,menu_link = ?,menu_methods = ?,menu_icon = ?,menu_order = ?,parent_menu_code = ? where menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_select_menu_order_by_pMenuCode" description="查询menuOrder">
+	    <![CDATA[
+	    SELECT
+			IFNULL(max(menu_order) + 1, 1)
+		FROM
+			t_sys_menu
+		WHERE
+			parent_menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_select_sys_menu_by_parentMenuCode" description="查询menuOrder">
+	    <![CDATA[
+	     select ifnull(max(menu_order),(select menu_order from t_sys_menu where menu_code = ?)*10 )+1 fo from t_sys_menu where parent_menu_code = ?  order by menu_order desc limit 1
+	    ]]>
+	</sql>
+	<sql id="sql_select_sys_menu_by_two_parentMenuCode" description="查询2个parent_menu_code数据">
+	    <![CDATA[
+	    select tm1.menu_code,tm2.menu_order,tm1.parent_menu_code from t_sys_menu tm1 left join t_sys_menu tm2 on tm1.parent_menu_code = tm2.menu_code
+        where tm1.parent_menu_code in (?,?);
+	    ]]>
+	</sql>
+	<sql id="sql_select_sys_menu_by_parentMenuCode_orderby_parent_menu_code" description="根据parent_menu_code查询menuOrder">
+	    <![CDATA[
+	   	select tm2.menu_order from t_sys_menu tm1 left join t_sys_menu tm2 on tm1.parent_menu_code = tm2.menu_code where tm1.parent_menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_select_sys_menu_function_by_menuCode" description="查询funOrder">
+	    <![CDATA[
+	    select ifnull(max(fun_order),0)+1 fo from t_sys_menu_function where menu_code = ?  order by fun_order desc limit 1
+	    ]]>
+	</sql>
+	<sql id="sql_delete_sys_menu" description="删除menu表单个menu">
+	    <![CDATA[
+	    delete from t_sys_menu where menu_code = ? or parent_menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_select_sys_menu" description="查询menu_code">
+	    <![CDATA[
+	    select menu_code from t_sys_menu where menu_code = ? or parent_menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_delete_sys_menu_function" description="删除menufunction表单个menu">
+	    <![CDATA[
+	    delete from t_sys_menu_function where menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_delete_sys_menu_function_one" description="删除menufunction表单个方法">
+	    <![CDATA[
+	    delete from t_sys_menu_function where menu_code = ? and fun_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_delete_sys_role_function_one" description="删除单个rolefunction">
+	    <![CDATA[
+	    delete from t_sys_role_function where menu_code = ? and fun_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_delete_sys_role_function" description="删除rolefunction">
+	    <![CDATA[
+	    delete from t_sys_role_function where menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_delete_sys_role_menu" description="删除role">
+	    <![CDATA[
+	    delete from t_sys_role_menu where menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_select_child_menus" description="查询子菜单集合">
+	    <![CDATA[
+	    SELECT
+			t1.*, t2.menu_name parent_menu_name
+		FROM
+			t_sys_menu t1
+		LEFT JOIN t_sys_menu t2 ON t2.menu_code = t1.parent_menu_code
+		WHERE
+			t1.parent_menu_code != 0
+		ORDER BY
+			t1.menu_order
+	    ]]>
+	</sql>
+	<sql id="sql_select_top_menu" description="查询顶级菜单">
+	    <![CDATA[
+	    select * from t_sys_menu where parent_menu_code = ? order by menu_order
+	    ]]>
+	</sql>
+	<sql id="sql_select_menu_methods" description="查询菜单下menuMethods">
+	    <![CDATA[
+	    select menu_methods,menu_order from t_sys_menu where menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_select_fun_methods" description="查询功能下funMethods">
+	    <![CDATA[
+	    select fun_methods,fun_order from t_sys_menu_function where menu_code = ? and fun_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_select_menu_function" description="查询菜单下所有功能">
+	    <![CDATA[
+	    select * from t_sys_menu_function where menu_code = ? order by fun_order
+	    ]]>
+	</sql>
+	<sql id="sql_select_menu_function_by_menuCode_funCode" description="查询菜单下功能">
+	    <![CDATA[
+	    select * from t_sys_menu_function where menu_code = ? and fun_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_select_menu_function_by_one" description="查询菜单下功能">
+	    <![CDATA[
+	    select * from t_sys_menu_function where menu_code = ? and (fun_code = ? or fun_name = ?)
+	    ]]>
+	</sql>
+	<sql id="sql_select_menu_function_by_one_other" description="查询菜单下功能除本身以外的">
+	    <![CDATA[
+	    select fun_code,fun_name,menu_code from t_sys_menu_function where menu_code = ? and fun_code != ? and fun_name = ?
+	    ]]>
+	</sql>
+	<sql id="sql_select_last_fun" description="查询上一个功能">
+	    <![CDATA[
+	    SELECT
+			fun_code,
+			fun_order
+		FROM
+			t_sys_menu_function
+		WHERE
+			fun_order < (
+				SELECT
+					fun_order
+				FROM
+					t_sys_menu_function
+				WHERE
+					menu_code = ?
+				AND fun_code = ?
+			)
+		and menu_code = ?
+		ORDER BY
+			fun_order DESC
+		LIMIT 1
+	    ]]>
+	</sql>
+	<sql id="sql_select_next_fun" description="查询下一个功能">
+	    <![CDATA[
+	    SELECT
+			fun_code,
+			fun_order
+		FROM
+			t_sys_menu_function
+		WHERE
+			fun_order > (
+				SELECT
+					fun_order
+				FROM
+					t_sys_menu_function
+				WHERE
+					menu_code = ?
+				AND fun_code = ?
+			)
+		and menu_code = ?
+		ORDER BY
+			fun_order
+		LIMIT 1
+	    ]]>
+	</sql>
+	<sql id="sql_update_fun_order" description="修改功能排序">
+	    <![CDATA[
+	     update t_sys_menu_function set fun_order = ? where menu_code = ? and fun_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_update_menu_order" description="修改菜单排序">
+	    <![CDATA[
+	     update t_sys_menu set menu_order = ? where menu_code = ?
+	    ]]>
+	</sql>
+	<sql id="sql_select_last_menu" description="查询上一个菜单">
+	    <![CDATA[
+	    SELECT
+			menu_code, menu_order
+		FROM
+			t_sys_menu
+		WHERE
+			menu_order < (
+				SELECT
+					menu_order
+				FROM
+					t_sys_menu
+				WHERE
+					menu_code = ?
+			)
+		AND parent_menu_code = ?
+		ORDER BY
+			menu_order DESC
+		LIMIT 1
+	    ]]>
+	</sql>
+	<sql id="sql_select_next_menu" description="查询下一个菜单">
+	    <![CDATA[
+	    SELECT
+			menu_code, menu_order
+		FROM
+			t_sys_menu
+		WHERE
+			menu_order > (
+				SELECT
+					menu_order
+				FROM
+					t_sys_menu
+				WHERE
+					menu_code = ?
+			)
+		AND parent_menu_code = ?
+		ORDER BY
+			menu_order
+		LIMIT 1
+	    ]]>
+	</sql>
+	<sql id="select_list_from_t_sys_method_white_list" description="查询白名单list">
+	    <![CDATA[
+	      select tmw.id,tmw.wl_class,tmw.wl_method,tmw.operator,tu.user_name operatorStr,tmw.update_date  from t_sys_method_white_list tmw left join t_sys_user tu on tmw.operator = tu.user_code
+	    ]]>
+	</sql>
+	<sql id="batch_insert_method_white_list" description="新增白名单">
+	    <![CDATA[
+	      insert into t_sys_method_white_list (wl_class,wl_method,operator,update_date) values (?,?,?,?)
+	    ]]>
+	</sql>
+	<sql id="delete_method_white_list" description="删除白名单">
+	    <![CDATA[
+	      delete from t_sys_method_white_list where id = ?
+	    ]]>
+	</sql>
+	
+	<sql id="sql_insert_sys_monitor" description="增加超时方法监控台">
+	   <![CDATA[ 
+	   	 insert into t_sys_timeout_monitor(monitor_code,monitor_class,monitor_method,timeout_milliseconds,monitor_time) values(?,?,?,?,?)
+	   ]]> 
+	</sql>
+	
+	<sql id="sql_batch_update_dic_value" description="批量更新某个字典的数据值">
+	  <![CDATA[
+		update t_sys_dic_value set dic_value_text = ? where dic_code = ? and dic_value_code = ?
+	  ]]>
+	</sql>
+	<sql id="sql_count(0)_t_sys_user" description="批量更新某个字典的数据值">
+	  <![CDATA[
+		select user_code,user_name,user_dept_code count from t_sys_user where user_phone = ? #SQL#
+	  ]]>
+	</sql>
+
+
+	<sql id="sysDicValueList" description="根据条件查询字典">
+		<![CDATA[
+		select * FROM  t_sys_dic_value  WHERE
+		dic_value_code not in
+		(select extend_second FROM t_sys_user WHERE user_dept_code = ? AND  extend_second !=? )
+		AND dic_code = ?
+       ]]>
+	</sql>
+
+	<sql id="updateExtendSecond" description="设置用户为组长">
+		<![CDATA[
+		update   t_sys_user  SET extend_second = ?  where user_code = ?
+	  ]]>
+	</sql>
+
+	<sql id="LeaderCounts" description="查看部门管理员和组长数量">
+		<![CDATA[
+		SELECT a.extend_second AS leader, b.extend_second AS admins FROM
+		(SELECT count(extend_second) AS extend_second FROM `t_sys_user` where  extend_second = ?  AND user_dept_code = ?) AS a,
+		(SELECT count(extend_second) AS extend_second FROM `t_sys_user` where  extend_second = ?  AND user_dept_code = ?) AS b
+	  ]]>
+	</sql>
+
+
+	<sql id="sql_find_dept_code_user" description="根据部门code查询用户">
+		<![CDATA[
+	    select * from t_sys_user tu where user_dept_code = ?
+	   ]]>
+	</sql>
+
+
+	<sql id="sql_delete_user" description="根据code删除用户">
+		<![CDATA[
+	    delete from t_sys_user where user_code = ?
+	   ]]>
+	</sql>
+</root>
